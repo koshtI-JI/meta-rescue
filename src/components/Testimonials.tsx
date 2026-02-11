@@ -27,8 +27,8 @@ const Testimonials: React.FC = () => {
     <section className="py-20 bg-slate-50 border-y border-slate-200">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Success Stories</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900">What Our Clients Say</h3>
+          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Social Proof</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-900">Trusted by Account Owners Across Multiple Niches</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

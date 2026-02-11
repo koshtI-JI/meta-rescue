@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, Image, Import, ShieldAlert } from 'lucide-react';
+import { BadgeCheck, ShieldAlert } from 'lucide-react';
 import verifyProfile from "./image/verify_profile.png";
 
 
@@ -17,22 +17,15 @@ const VerifiedAccess: React.FC = () => {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative bg-white rounded-lg border-2 border-slate-100 overflow-hidden">
-                  {/* Placeholder for the screenshot - user needs to add the image file */}
-                  <a 
-    href="https://www.instagram.com/omkoshti2"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
                   <img 
                     src={verifyProfile} 
                     alt="Verified Professional Profile" 
                     className="w-full h-auto object-cover transform transition-transform duration-500 hover:scale-105"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.src = "{verifyProfile}";
+                      target.src = verifyProfile as unknown as string;
                     }}
                   />
-                  </a>
                 </div>
                 
                 <div className="absolute -bottom-4 -right-4 bg-white p-2 rounded-full shadow-lg border border-slate-100">
@@ -48,11 +41,11 @@ const VerifiedAccess: React.FC = () => {
               </div>
               
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                Verified Professional Access
+                Professional Access to Meta Business Support
               </h2>
               
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                "I operate with <span className="font-semibold text-slate-900">Meta Business Premium support access</span>, allowing faster and more professional case escalations for clients."
+                Enabling faster and structured case escalation.
               </p>
               
               <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-lg border border-slate-100 text-left">

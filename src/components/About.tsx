@@ -24,24 +24,25 @@ const About: React.FC = () => {
           </div>
           
           <div className="md:w-1/2">
-            <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Who We Are</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Expert Social Media Recovery Solutions</h3>
-            <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-              We specialize in helping individuals, creators, and businesses recover disabled, hacked, or restricted social media accounts using professional escalation methods.
+            <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Pain → Solution</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">We Understand What’s at Stake</h3>
+            <p className="text-slate-700 text-lg mb-6 leading-relaxed">
+              “Losing access to your social media can mean losing clients, revenue, and credibility.”
             </p>
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Navigating Meta's support channels can be overwhelming and often leads to dead ends. Our team leverages direct escalation pathways and Meta Business support protocols to present your case effectively, ensuring the highest chance of recovery. We don't just send emails; we manage the entire recovery strategy.
+              We help escalate cases professionally and guide you through the recovery process — structured, transparent, and focused on getting your access back.
             </p>
             
-            <ul className="space-y-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                "Direct escalation strategies",
-                "Personalized case management",
-                "Security audit post-recovery"
+                "Disabled Account Assistance",
+                "Hacked Profile Help",
+                "Business & Ad Account Issues",
+                "Impersonation Reporting"
               ].map((item, index) => (
                 <li key={index} className="flex items-center text-slate-700">
                   <CheckCircle className="text-blue-500 mr-3" size={20} />
-                  <span>{item}</span>
+                  <span className="font-medium">{item}</span>
                 </li>
               ))}
             </ul>

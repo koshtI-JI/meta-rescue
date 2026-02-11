@@ -21,11 +21,9 @@ const Navbar: React.FC = () => {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">About</a>
-          <a href="#services" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Services</a>
+        <div className="hidden md:flex items-center">
           <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg transition-all font-medium text-sm">
-            Contact Now
+            Submit My Case
           </a>
         </div>
 
@@ -42,25 +40,11 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-t border-slate-800 p-6 flex flex-col space-y-4 shadow-xl">
           <a 
-            href="#about" 
-            className="text-slate-300 hover:text-white py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About
-          </a>
-          <a 
-            href="#services" 
-            className="text-slate-300 hover:text-white py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Services
-          </a>
-          <a 
             href="#contact" 
             className="bg-blue-600 text-white py-3 rounded-lg text-center font-medium"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Contact Now
+            Submit My Case
           </a>
         </div>
       )}

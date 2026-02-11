@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Instagram, Send, Mail, ArrowRight, MessageCircle } from 'lucide-react';
+import { Instagram, Send, Mail, ArrowRight, MessageCircle, Lock } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -27,14 +27,92 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Get Started</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Start Your Recovery Process</h3>
+          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">Final Step</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Don’t Risk Permanent Loss of Your Account</h3>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Don't wait. The sooner we start, the better the chances of recovery. Reach out through any of the channels below.
+            Get Expert Assistance Now. Fill the form and our team will review your case quickly.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Form */}
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
+            <h4 className="text-2xl font-bold text-slate-900 mb-6">Get Your Account Reviewed</h4>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  value={formState.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formState.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="issue" className="block text-sm font-medium text-slate-700 mb-1">Issue Type</label>
+                <select 
+                  id="issue" 
+                  name="issue" 
+                  value={formState.issue}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  required
+                >
+                  <option value="" disabled>Select your issue</option>
+                  <option value="disabled">Disabled Account</option>
+                  <option value="hacked">Hacked Account</option>
+                  <option value="business">Business/Ad Account</option>
+                  <option value="impersonation">Impersonation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  value={formState.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none"
+                  placeholder="Describe your issue in detail..."
+                  required
+                ></textarea>
+              </div>
+
+              <div className="flex items-center gap-2 text-slate-500 text-sm">
+                <Lock size={16} className="text-slate-400" />
+                <span>Your information stays private & confidential.</span>
+              </div>
+              <button 
+                type="submit" 
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg"
+              >
+                Get My Account Reviewed
+              </button>
+            </form>
+          </div>
+          
           {/* Contact Options */}
           <div className="space-y-6">
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-100">
@@ -122,80 +200,6 @@ const Contact: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-            <h4 className="text-2xl font-bold text-slate-900 mb-6">Get Your Account Reviewed</h4>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  value={formState.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  value={formState.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="issue" className="block text-sm font-medium text-slate-700 mb-1">Issue Type</label>
-                <select 
-                  id="issue" 
-                  name="issue" 
-                  value={formState.issue}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  required
-                >
-                  <option value="" disabled>Select your issue</option>
-                  <option value="disabled">Disabled Account</option>
-                  <option value="hacked">Hacked Account</option>
-                  <option value="business">Business/Ad Account</option>
-                  <option value="impersonation">Impersonation</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  value={formState.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none"
-                  placeholder="Describe your issue in detail..."
-                  required
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg"
-              >
-                Submit for Review
-              </button>
-            </form>
           </div>
         </div>
       </div>
