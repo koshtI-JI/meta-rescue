@@ -2,14 +2,12 @@
 import Navbar from './components/Navbar';
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
-import VerifiedAccess from './components/VerifiedAccess';
-import About from './components/About';
-import Services from './components/Services';
-import WhyChooseUs from './components/WhyChooseUs';
+import Stats from './components/Stats';
+import Process from './components/Process';
 import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { Button } from './components/ui/Button';
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -35,46 +33,46 @@ function App() {
     console.log('Email captured:', popupEmail);
     setShowPopup(false);
   };
+  
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background text-content font-sans">
       <Navbar />
       <Hero />
+      <Stats />
+      <Process />
       <Testimonials />
-      <VerifiedAccess />
-      <About />
-      <Services />
-      <WhyChooseUs />
-      <FAQ />
       <Contact />
       <Footer />
-      <a
-        href="#contact"
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+      
+      <button
+        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        className="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary-hover text-white font-semibold py-4 px-6 rounded-2xl shadow-btn transition-all duration-300 hover:-translate-y-1"
         aria-label="Submit My Case"
       >
-        Submit My Case
-      </a>
+        Submit Case
+      </button>
+      
       {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-6">
-          <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 border border-slate-200">
-            <h4 className="text-2xl font-bold text-slate-900 mb-2">Free Instagram Recovery Guide</h4>
-            <p className="text-slate-600 mb-6">Get quick tips PDF emailed to you. Improve your chances now.</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-6 transition-all">
+          <div className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-8 border border-slate-100/50">
+            <h4 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">Free Recovery Guide</h4>
+            <p className="text-slate-500 mb-8 text-sm leading-relaxed">Get our priority PDF checklist emailed to you. Improve your chances of recovering your disabled account.</p>
             <form onSubmit={handlePopupSubmit} className="space-y-4">
               <input
                 type="email"
                 value={popupEmail}
                 onChange={(e) => setPopupEmail(e.target.value)}
                 required
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                placeholder="Enter your email address"
+                className="w-full h-12 px-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
               />
-              <div className="flex gap-3">
-                <button type="submit" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button type="submit" className="w-full h-12 px-0 text-sm">
                   Get Free Guide
-                </button>
-                <button type="button" className="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 rounded-lg transition-all" onClick={() => setShowPopup(false)}>
+                </Button>
+                <Button type="button" variant="secondary" className="w-full h-12 px-0 text-sm" onClick={() => setShowPopup(false)}>
                   No thanks
-                </button>
+                </Button>
               </div>
             </form>
           </div>
